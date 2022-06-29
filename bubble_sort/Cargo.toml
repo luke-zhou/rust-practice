@@ -1,5 +1,5 @@
 [package]
-name = "bubble-sort"
+name = "bubble_sort"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,3 +11,6 @@ rand = "0.8.5"
 [dev-dependencies]
 criterion = "0.3.5"
 
+[[bench]]
+name = "bubble_sort_benchmark"
+harness = false

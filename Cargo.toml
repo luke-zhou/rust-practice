@@ -1,5 +1,5 @@
 [workspace]
 
 members = [
-    "bubble-sort",
+    "bubble_sort",
 ]
