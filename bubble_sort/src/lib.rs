@@ -16,6 +16,10 @@ pub fn bubble_sort(list: & mut Vec<i64>) {
 
 }
 
+pub fn merge_sort(list: & mut Vec<i64>) {
+    list.sort();
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -27,13 +31,10 @@ mod tests {
         assert_eq!(list, vec![4, 5, 6, 7, 8, 9, 10]);
     }
 
-    // #[bench]
-    // fn bubble_sort_bench(b: &mut Bencher) {
-    //     let mut list: Vec<i64> = Vec::with_capacity(1_0000);
-    //     for _ in 0..list.capacity() {
-    //         list.push(rand::random());
-    //     };
-    //     bubble_sort(& mut list);
-    //     b.iter(|| bubble_sort(& mut list));
-    // }
+    #[test]
+    fn merge_sort_test() {
+        let mut list = vec![10,9,8,7,6,5,4];
+        merge_sort(& mut list);
+        assert_eq!(list, vec![4, 5, 6, 7, 8, 9, 10]);
+    }
 }
