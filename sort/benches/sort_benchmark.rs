@@ -1,4 +1,4 @@
-use bubble_sort::{
+use sort::{
     bubble_sort,
     merge_sort,
 };
