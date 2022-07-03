@@ -47,10 +47,10 @@ pub fn quick_sort_old(list: & mut Vec<i64>) {
 }
 
 pub fn quick_sort(list: & mut Vec<i64>, start: usize, end: usize) {
-    println!("input:{:?}", list);
-    println!("start:{}", start);
-    println!("end:{}", end);
-    let mut pivot = (end - start + 1)/2;
+    // println!("input:{:?}", list);
+    // println!("start:{}", start);
+    // println!("end:{}", end);
+    let mut pivot = (end + start + 1)/2;
     let mut left = start;
     let mut right = end;
 
@@ -68,7 +68,7 @@ pub fn quick_sort(list: & mut Vec<i64>, start: usize, end: usize) {
             }
         }
         while right > pivot {
-            if list[right] < list[pivot] {
+            if list[right] <= list[pivot] {
                 let temp = list[right];
                 list[right] = list[pivot];
                 list[pivot] = temp;
@@ -80,14 +80,16 @@ pub fn quick_sort(list: & mut Vec<i64>, start: usize, end: usize) {
             }
         }
     }
-    println!("pivot:{}", list[pivot]);
-    println!("{:?}", list);
+    // println!("pivot:{}", list[pivot]);
+    // println!("{:?}", list);
     if pivot >0 && pivot-1 > start {
-        println!("call less");
+        // println!("call less");
         quick_sort(list, start, pivot-1);
     }
     if end > pivot+1 {
-        println!("call great");
+        // println!("call great");
+        // println!("great-pivot:{}", pivot);
+        // println!("great-end:{}", end);
         quick_sort(list, pivot+1, end);
     }
 
@@ -112,16 +114,8 @@ mod tests {
     }
 
     #[test]
-    fn quick_luke_sort_test() {
-        let mut list = vec![10,5,8,11,4,7,5,9,3,6];
-        let length = list.len();
-        quick_sort(& mut list, 0, length-1);
-        assert_eq!(list, vec![3, 4, 5, 5, 6, 7, 8, 9, 10, 11]);
-    }
-
-    #[test]
     fn quick_sort_test() {
-        let mut list = vec![10, 9, 11, 8];
+        let mut list = vec![10,5,8,11,4,7,5,9,3,6];
         let length = list.len();
         quick_sort(& mut list, 0, length-1);
         assert_eq!(list, vec![3, 4, 5, 5, 6, 7, 8, 9, 10, 11]);

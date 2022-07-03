@@ -18,7 +18,7 @@ fn criterion_benchmark(c: &mut Criterion) {
     let mut group = c.benchmark_group("sort");
     group.bench_function("bubble sort 100_000", |b| b.iter(|| bubble_sort(black_box(& mut list))));
     group.bench_function("merge sort 100_000", |b| b.iter(|| merge_sort(black_box(& mut list))));
-    group.bench_function("quick sort 100_000", |b| b.iter(|| quick_sort(black_box(& mut list))));
+    group.bench_function("quick sort 100_000", |b| b.iter(|| quick_sort(black_box(& mut list), 0, 99_999)));
     group.finish();
 }
 
